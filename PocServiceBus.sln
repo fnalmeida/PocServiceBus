@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api.receveiver.hook", "api.receveiver.hook\api.receveiver.hook.csproj", "{672F3181-B093-4D0A-8C21-0661627848BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "worker.consumer.servicebus", "worker.consumer.servicebus\worker.consumer.servicebus.csproj", "{7B66B262-536A-4B92-AEE4-3CB1C6DBE139}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{672F3181-B093-4D0A-8C21-0661627848BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672F3181-B093-4D0A-8C21-0661627848BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672F3181-B093-4D0A-8C21-0661627848BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672F3181-B093-4D0A-8C21-0661627848BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B66B262-536A-4B92-AEE4-3CB1C6DBE139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B66B262-536A-4B92-AEE4-3CB1C6DBE139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B66B262-536A-4B92-AEE4-3CB1C6DBE139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B66B262-536A-4B92-AEE4-3CB1C6DBE139}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDC85657-1075-4C8A-A191-E80EDE2D1521}
+	EndGlobalSection
+EndGlobal
