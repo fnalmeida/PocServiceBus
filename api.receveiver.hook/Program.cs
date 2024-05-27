@@ -12,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var session = builder.Configuration.GetSection("SERVICEBUS");
-var connectionString = session["NAMESPACE-CONNECTION-STRING"];
-var queue = session["QUEUE-NAME"];
+var connectionString = session["NamespaceConnectionString"];
+var queue = session["QueueName"];
 builder.Services.AddScoped<ServiceBusConnection>(dao => new ServiceBusConnection(connectionString, queue));
 
 var app = builder.Build();

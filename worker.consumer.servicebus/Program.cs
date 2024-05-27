@@ -4,8 +4,8 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<Worker>();
 
 var session = builder.Configuration.GetSection("SERVICEBUS");
-var connectionString = session["NAMESPACE-CONNECTION-STRING"];
-var queue = session["QUEUE-NAME"];
+var connectionString = session["NamespaceConnectionString"];
+var queue = session["QueueName"];
 
 builder.Services.AddSingleton<ServiceBusConnection>(x => new ServiceBusConnection(connectionString, queue));
 
