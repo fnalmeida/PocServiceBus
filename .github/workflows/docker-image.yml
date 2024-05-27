@@ -17,5 +17,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        docker build . -t pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
-        docker push pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
+        docker build -f "worker.consumer.servicebus\Dockerfile" -t pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
+        docker push pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}        
