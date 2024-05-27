@@ -8,7 +8,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: .
+        working-directory: worker.consumer.servicebus
     steps:
     - uses: actions/checkout@v2
     - uses: azure/docker-login@v1
@@ -17,5 +17,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        docker build -f ./worker.consumer.servicebus/Dockerfile -t pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
+        docker build . -t pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
         docker push pocservicebus.azurecr.io/workerservicebus:${{ github.sha }}
