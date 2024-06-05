@@ -15,7 +15,7 @@ var session = builder.Configuration.GetSection("SERVICEBUS");
 var connectionString = session["NamespaceConnectionString"];
 var queue = session["QueueName"];
 builder.Services.AddScoped<ServiceBusConnection>(dao => new ServiceBusConnection(connectionString, queue));
-
+builder.Services.AddApplicationInsightsTelemetry();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
