@@ -13,8 +13,12 @@ namespace worker.consumer.servicebus
             _logger = logger;
             _con = con;
 
-            var client = new ServiceBusClient(_con.ConnectionString);
-            _serviceBusProcessor = client.CreateProcessor(_con.Queue);
+            var clientOptions = new ServiceBusClientOptions()
+            {
+                TransportType = ServiceBusTransportType.AmqpWebSockets
+            };
+            var client = new ServiceBusClient(_con.ConnectionString, clientOptions);
+            _serviceBusProcessor = client.CreateProcessor(_con.Queue, new ServiceBusProcessorOptions());
             _serviceBusProcessor.ProcessMessageAsync += ProcessMessageAsync;
             _serviceBusProcessor.ProcessErrorAsync += ErrorHandler;
         }
@@ -27,7 +31,7 @@ namespace worker.consumer.servicebus
             {
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
-                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);                  
+                   // _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);                  
                 }
                 await Task.Delay(1000, stoppingToken);
             }
