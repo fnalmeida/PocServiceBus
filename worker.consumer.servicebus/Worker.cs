@@ -56,7 +56,7 @@ namespace worker.consumer.servicebus
         }
         Task ErrorHandler(ProcessErrorEventArgs args)
         {
-            Console.WriteLine(args.Exception.ToString());
+            _logger.LogError(args.Exception.ToString());
             return Task.CompletedTask;
         }
         public override async Task StopAsync(CancellationToken cancellationToken)

@@ -2,6 +2,7 @@ using worker.consumer.servicebus;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<Worker>();
+builder.Services.AddApplicationInsightsTelemetryWorkerService();
 
 var session = builder.Configuration.GetSection("SERVICEBUS");
 var connectionString = session["NamespaceConnectionString"];

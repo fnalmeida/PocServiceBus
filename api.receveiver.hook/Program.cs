@@ -26,7 +26,6 @@ var app = builder.Build();
 //}
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 
 var summaries = new[]
@@ -54,7 +53,7 @@ app.MapGet("/weatherforecast", () =>
 {
     logger.LogInformation($"payload recebido : {payload}");
 
-    if (await MessageClient.senderMessage(payload, con))
+    if (await MessageClient.senderMessage(payload, con, logger))
        return Results.Ok(payload);
     else
       return  Results.BadRequest("Mensagem não processada");
@@ -71,7 +70,7 @@ app.Run();
 internal class MessageClient
 {
 
-    public static async Task<bool> senderMessage(dynamic message, ServiceBusConnection con)
+    public static async Task<bool> senderMessage(dynamic message, ServiceBusConnection con, ILogger logger)
     {
         ServiceBusClient client;
         ServiceBusSender sender;
@@ -89,7 +88,7 @@ internal class MessageClient
         try
         {
             await sender.SendMessagesAsync(messageBatch);
-            Console.WriteLine($"messages has been published to the queue.");
+            logger.LogInformation($"messages has been published to the queue.");
         }
         finally
         {
